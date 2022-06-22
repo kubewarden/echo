@@ -1,0 +1,15 @@
+name: policy-echo
+description: A policy that echoes back Kubernetes' AdmissionReview - useful for Policy Authors
+homepage: https://github.com/kubewarden/echo
+author:
+  name: Flavio Castelli <fcastelli@suse.com>
+  homepage: https://flavio.castelli.me
+download:
+  registry: ghcr.io/kubewarden/policies/policy-echo:__TAG__
+  url: https://github.com/kubewarden/echo/releases/download/__TAG__/policy.wasm
+keywords:
+  - developer
+resources:
+  - '*'
+mutation: false
+contextAware: false
