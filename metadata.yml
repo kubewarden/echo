@@ -7,7 +7,7 @@ mutating: false
 contextAware: false
 executionMode: kubewarden-wapc
 annotations:
-  io.kubewarden.policy.title: policy-echo
+  io.kubewarden.policy.title: echo
   io.kubewarden.policy.description: A policy that echoes back Kubernetes' AdmissionReview - useful for Policy Authors
   io.kubewarden.policy.author: Flavio Castelli <fcastelli@suse.com>
   io.kubewarden.policy.url: https://github.com/kubewarden/echo
@@ -56,10 +56,10 @@ annotations:
     apiVersion: policies.kubewarden.io/v1
     kind: AdmissionPolicy
     metadata:
-      name: policy-echo
+      name: echo
       namespace: default
     spec:
-      module: "registry://registry-testing.svc.lan/kubewarden/policy/echo:latest"
+      module: "registry://ghcr.io/kubewarden/policies/echo:latest"
       settings: {}
       rules:
         - apiGroups:

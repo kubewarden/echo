@@ -42,10 +42,10 @@ kubectl apply -f - <<EOF
 apiVersion: policies.kubewarden.io/v1
 kind: AdmissionPolicy
 metadata:
-  name: policy-echo
+  name: echo
   namespace: default
 spec:
-  module: "registry://registry-testing.svc.lan/kubewarden/policy/echo:latest"
+  module: "registry://ghcr.io/kubewarden/policies/echo:latest"
   settings: {}
   rules:
     - apiGroups:

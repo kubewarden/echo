@@ -1,5 +1,5 @@
 [package]
-name = "policy-echo"
+name = "echo"
 version = "0.1.0"
 authors = ["Flavio Castelli <fcastelli@suse.com>"]
 edition = "2018"

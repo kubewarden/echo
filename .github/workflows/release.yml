@@ -26,8 +26,8 @@ jobs:
 
     uses: kubewarden/github-actions/.github/workflows/reusable-release-policy-rust.yml@v1
     with:
-      input-wasm: policy_echo
-      oci-target: ghcr.io/kubewarden/policies/policy-echo
+      input-wasm: echo
+      oci-target: ghcr.io/kubewarden/policies/echo
     
     secrets:
       workflow-pat: ${{ secrets.WORKFLOW_PAT }}

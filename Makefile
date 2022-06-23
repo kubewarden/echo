@@ -15,6 +15,9 @@ fmt:
 lint:
 	cargo clippy -- -D warnings
 
+e2e-tests:
+	echo Not implemented
+
 .PHONY: test
 test: fmt lint
 	cargo test
