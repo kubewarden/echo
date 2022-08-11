@@ -10,12 +10,6 @@ homeURL: https://github.com/kubewarden/echo
 containersImages:
 - name: policy
   image: ghcr.io/kubewarden/policies/echo:v0.1.0
-install: |
-  The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl/):
-
-  ```console
-  kwctl pull ghcr.io/kubewarden/policies/echo:v0.1.0
-  ```
 keywords:
 - developer
 links:
