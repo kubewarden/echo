@@ -12,7 +12,7 @@ crate-type = ["cdylib"]
 [dependencies]
 anyhow = "1"
 jmespath = "0.3.0"
-kubewarden-policy-sdk = { version = "0.8.4", default_features = false }
+kubewarden-policy-sdk = { version = "0.8.5", default_features = false }
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 
