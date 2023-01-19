@@ -1,20 +1,20 @@
 ---
-version: 0.1.0
+version: 0.1.1
 name: echo
 displayName: Echo
-createdAt: '2022-07-19T15:56:38+02:00'
+createdAt: '2023-01-19T14:46:21+02:00'
 description: A policy that echoes back Kubernetes' AdmissionReview - useful for Policy
   Authors
 license: Apache-2.0
 homeURL: https://github.com/kubewarden/echo
 containersImages:
 - name: policy
-  image: ghcr.io/kubewarden/policies/echo:v0.1.0
+  image: ghcr.io/kubewarden/policies/echo:v0.1.1
 keywords:
 - developer
 links:
 - name: policy
-  url: https://github.com/kubewarden/echo/releases/download/v0.1.0/policy.wasm
+  url: https://github.com/kubewarden/echo/releases/download/v0.1.1/policy.wasm
 - name: source
   url: https://github.com/kubewarden/echo
 provider:
@@ -25,3 +25,9 @@ annotations:
   kubewarden/resources: "*"
   kubewarden/mutation: false
   kubewarden/contextAware: false
+  kubewarden/rules: |
+    rules:
+    - apiGroups: ["*"]
+      apiVersions: ["*"]
+      resources: ["*"]
+      operations: ["CREATE", "UPDATE", "DELETE", "CONNECT"]
