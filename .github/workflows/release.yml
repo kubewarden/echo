@@ -28,7 +28,3 @@ jobs:
     with:
       input-wasm: echo
       oci-target: ghcr.io/kubewarden/policies/echo
-    
-    secrets:
-      workflow-pat: ${{ secrets.WORKFLOW_PAT }}
-    
