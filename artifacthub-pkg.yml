@@ -2,7 +2,7 @@
 version: 0.1.2
 name: echo
 displayName: Echo
-createdAt: '2023-01-19T14:46:21+02:00'
+createdAt: '2023-01-19T15:46:21+02:00'
 description: A policy that echoes back Kubernetes' AdmissionReview - useful for Policy
   Authors
 license: Apache-2.0
@@ -31,3 +31,4 @@ annotations:
       apiVersions: ["*"]
       resources: ["*"]
       operations: ["CREATE", "UPDATE", "DELETE", "CONNECT"]
+  kubewarden/hide-ui: true
