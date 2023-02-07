@@ -48,7 +48,7 @@ impl TryFrom<&String> for Operation {
             "UPDATE" => Ok(Operation::Update),
             "DELETE" => Ok(Operation::Delete),
             "CONNECT" => Ok(Operation::Connect),
-            _ => Err(format!("unknown type of operation: {}", value)),
+            _ => Err(format!("unknown type of operation: {value}")),
         }
     }
 }
