@@ -1,22 +1,32 @@
 rules:
-- apiGroups: ["*"]
-  apiVersions: ["*"]
-  resources: ["*"]
-  operations: ["CREATE", "UPDATE", "DELETE", "CONNECT"]
+  - apiGroups:
+      - '*'
+    apiVersions:
+      - '*'
+    resources:
+      - '*'
+    operations:
+      - CREATE
+      - UPDATE
+      - DELETE
+      - CONNECT
 mutating: false
 contextAware: false
+backgroundAudit: false
 executionMode: kubewarden-wapc
 annotations:
   # artifacthub specific
   io.artifacthub.displayName: Echo
-  io.artifacthub.resources: "*"
+  io.artifacthub.resources: '*'
   io.artifacthub.keywords: developer
+  # kubewarden specific
   io.kubewarden.policy.ociUrl: ghcr.io/kubewarden/policies/echo
-  # io.kubewarden.hidden-ui: "true"
-  # rest
   io.kubewarden.policy.title: echo
-  io.kubewarden.policy.description: A policy that echoes back Kubernetes' AdmissionReview - useful for Policy Authors
-  io.kubewarden.policy.author: "Kubewarden developers <cncf-kubewarden-maintainers@lists.cncf.io>"
+  io.kubewarden.policy.description: A policy that echoes back Kubernetes' AdmissionReview
+    - useful for Policy Authors
+  io.kubewarden.policy.author: Kubewarden developers <cncf-kubewarden-maintainers@lists.cncf.io>
   io.kubewarden.policy.url: https://github.com/kubewarden/echo
   io.kubewarden.policy.source: https://github.com/kubewarden/echo
   io.kubewarden.policy.license: Apache-2.0
+  io.kubewarden.policy.category: Debug
+  io.kubewarden.policy.severity: info
