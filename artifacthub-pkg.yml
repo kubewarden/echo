@@ -4,27 +4,27 @@
 #
 # This config can be saved to its default location with:
 #   kwctl scaffold artifacthub > artifacthub-pkg.yml 
-version: 0.1.4
+version: 0.1.5
 name: echo
 displayName: Echo
-createdAt: 2023-03-21T12:20:44.502324259Z
+createdAt: 2023-07-07T18:31:36.346562422Z
 description: A policy that echoes back Kubernetes' AdmissionReview - useful for Policy Authors
 license: Apache-2.0
 homeURL: https://github.com/kubewarden/echo
 containersImages:
 - name: policy
-  image: ghcr.io/kubewarden/policies/echo:v0.1.4
+  image: ghcr.io/kubewarden/policies/echo:v0.1.5
 keywords:
 - developer
 links:
 - name: policy
-  url: https://github.com/kubewarden/echo/releases/download/v0.1.4/policy.wasm
+  url: https://github.com/kubewarden/echo/releases/download/v0.1.5/policy.wasm
 - name: source
   url: https://github.com/kubewarden/echo
 install: |
   The policy can be obtained using [`kwctl`](https://github.com/kubewarden/kwctl):
   ```console
-  kwctl pull ghcr.io/kubewarden/policies/echo:v0.1.4
+  kwctl pull ghcr.io/kubewarden/policies/echo:v0.1.5
   ```
 maintainers:
 - name: Kubewarden developers
