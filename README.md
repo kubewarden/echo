@@ -23,12 +23,14 @@ will contain the JSON representation of the the `AdmissionReview`.
 
 These are the annotations being watched:
 
-* `io.kubewarden.policy.echo.create`: rejects creation of objects with this annotations
-* `io.kubewarden.policy.echo.updates`: rejects changes to objects with this annotations
-* `io.kubewarden.policy.echo.delete`: rejects deletions of objects with this annotations
-* `io.kubewarden.policy.echo.connect`: rejects CONNECT operations to objects with this annotations
+- `io.kubewarden.policy.echo.create`: rejects creation of objects with this annotations
+- `io.kubewarden.policy.echo.updates`: rejects changes to objects with this annotations
+- `io.kubewarden.policy.echo.delete`: rejects deletions of objects with this annotations
+- `io.kubewarden.policy.echo.connect`: rejects CONNECT operations to objects with this annotations
+- `io.kubewarden.policy.echo.loop`: the policy loops. This will result in a
+  rejection as the policy-server timeout is reached and it fails-closed.
 
-We will cover these in depth inside of the *"examples"* section.
+We will cover these in depth inside of the _"examples"_ section.
 
 ## Settings
 
@@ -95,10 +97,10 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
 ```
 
 Attempting to create this object will fail because the `echo` policy rejects

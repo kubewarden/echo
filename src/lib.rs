@@ -13,6 +13,7 @@ enum Operation {
     Update,
     Delete,
     Connect,
+    Loop,
 }
 
 impl Operation {
@@ -26,6 +27,8 @@ impl Operation {
                 .expect("delete jmespath should not fail"),
             Operation::Connect => jmespath::compile("request.object.metadata.annotations")
                 .expect("connect jmespath should not fail"),
+            Operation::Loop => jmespath::compile("request.object.metadata.annotations")
+                .expect("connect jmespath should not fail"),
         }
     }
 
@@ -35,6 +38,7 @@ impl Operation {
             Operation::Update => "io.kubewarden.policy.echo.update",
             Operation::Delete => "io.kubewarden.policy.echo.delete",
             Operation::Connect => "io.kubewarden.policy.echo.connect",
+            Operation::Loop => "io.kubewarden.policy.echo.loop",
         }
     }
 }
@@ -48,6 +52,7 @@ impl TryFrom<&String> for Operation {
             "UPDATE" => Ok(Operation::Update),
             "DELETE" => Ok(Operation::Delete),
             "CONNECT" => Ok(Operation::Connect),
+            "LOOP" => Ok(Operation::Loop),
             _ => Err(format!("unknown type of operation: {value}")),
         }
     }
@@ -73,6 +78,11 @@ fn validate(payload: &[u8]) -> CallResult {
             .as_string()
             .ok_or_else(|| anyhow!("jmespath didn't return a string"))?,
     )?;
+
+    if matches!(operation, Operation::Loop) {
+        #[allow(clippy::empty_loop)]
+        loop {}
+    }
 
     // Search the data with the compiled expression
     let result = operation.annotation_expr().search(data.clone())?;
@@ -112,6 +122,12 @@ mod tests {
             Testcase {
                 name: String::from("delete"),
                 fixture_file: String::from("test_data/delete_accept.json"),
+                expected_validation_result: true,
+                settings: Settings {},
+            },
+            Testcase {
+                name: String::from("loop"),
+                fixture_file: String::from("test_data/create_loop.json"),
                 expected_validation_result: true,
                 settings: Settings {},
             },
