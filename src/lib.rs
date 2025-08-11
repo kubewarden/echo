@@ -16,7 +16,7 @@ enum Operation {
 }
 
 impl Operation {
-    fn annotation_expr(&self) -> jmespath::Expression {
+    fn annotation_expr(&self) -> jmespath::Expression<'_> {
         match self {
             Operation::Create => jmespath::compile("request.object.metadata.annotations")
                 .expect("create jmespath should not fail"),
